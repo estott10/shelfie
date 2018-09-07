@@ -7,6 +7,8 @@ import Form from './components/Form/Form';
 import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 
+
+
 class App extends Component {
   constructor(props){
   super(props)
@@ -15,24 +17,25 @@ class App extends Component {
     inventory: []
   }
 }
-
 componentDidMount(){
   axios.get('/api/inventory')
       .then((response)=>{
-        debugger
           this.setState({
-              inventory: response
+              inventory: response.data
           })
       })
 }
 
+
+
   render() {
     return (
       <div className="App">
+       <Header />
         <Dashboard storedinventory={this.state.inventory}/>
         <Form />
-        <Header />
        <Product />
+       
       </div>
     );
   }

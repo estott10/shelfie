@@ -1,0 +1,1 @@
+Insert Into products (product_name, price, image) Values ($1, $2, $3)

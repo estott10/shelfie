@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import Product from '../Product/Product';
+import '../../App.css';
 
 export default class Dashboard extends Component {
+    constructor(props){
+    super(props)
+
+    this.state = {
+        product: {}
+
+        }
+    }
+
+
+
   render() {
+    console.log(this.props)
     const { storedinventory } = this.props;
     return (
-
-
-          <div >
+          <div className="Dashboard">
            Dashboard
                 {storedinventory.map((product, i)=> {
-                    return <li key={i}> <Product productimage={product.image} productname={product.name} productprice={product.price}/> </li>
+                    return <li className="productgrid" key={i}> <Product productimage={product.image} productname={product.product_name} productprice={product.price}/> </li>
                   }) }
           </div>
 

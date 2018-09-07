@@ -6,7 +6,7 @@ const cors= require('cors');
 require('dotenv').config();
 
 const app= express();
-const controller= require('./controller');
+const controller= require('./server/controller');
 
 
 app.use( cors() );
@@ -18,6 +18,9 @@ massive( process.env.CONNECTION_STRING ).then(  dbInstance => {
 
 app.get('/api/inventory', controller.getInventory)
 
+app.post('/api/product', controller.addInventory)
+
+// app.delete('/api/remove/:id', controller.removeInventory)
 
 
 const port = process.env.PORT || 8080

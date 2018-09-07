@@ -31,16 +31,17 @@ export default class Form extends Component {
     render(){
         return(
             <div className= "form">
-             Form
-                Image Url
+             <h1>{this.state.image}</h1>
+                <h4>Image Url:</h4>
                 <input name="image" value={this.state.image} onChange={this.handleChange}/>
-                Name
+                <h4>Name:</h4>
                 <input name="productName" value={this.state.productName} onChange={this.handleChange}/>
-                Price
+                <h4>Price:</h4>
                 <input name="price" value={this.state.price} onChange={this.handleChange}/>
-          
+                    <div className="form_buttons">
                 <button className="add_button" onClick={this.add}>Add to Inventory</button>
-                <button onClick= {this.cancel}>Cancel</button>
+                <button className= "cancel_button" onClick= {this.cancel}>Cancel</button>
+                    </div>
             </div>
         )
     }

@@ -9,13 +9,25 @@ module.exports = {
             .then( result => {
                 res.send(result)
                 console.log(result)
-                debugger
             })
             .catch( err => {
-                res.status(500).send({errorMessage: "failed to retreive allstars"});
+                res.status(500).send({errorMessage: "failed to retreive product"});
                 console.log(err)
             }) 
     },
 
+    addInventory: (req, res, next) => {
+        const dbInstance= req.app.get('db');
+        const { product_name, price, image} = req.body
 
+        dbInstance.create_product([product_name, price, image])
+            .then( result => {
+                res.send(result)
+                console.log(dbInstance)
+            })
+            .catch( err => {
+                res.status(500).send({errorMessage: "failed to create product"});
+                console.log(err)
+            }) 
+    },
 }
