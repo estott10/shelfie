@@ -1,7 +1,5 @@
 module.exports = {
-        
-        
-        
+          
     getInventory: (req, res, next) => {
         const dbInstance= req.app.get('db');
 
@@ -22,8 +20,10 @@ module.exports = {
 
         dbInstance.create_product([product_name, price, image])
             .then( result => {
+                dbInstance.get_inventory()
+                .then( result => {
                 res.send(result)
-                console.log(dbInstance)
+                    })
             })
             .catch( err => {
                 res.status(500).send({errorMessage: "failed to create product"});

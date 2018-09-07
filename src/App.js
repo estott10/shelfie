@@ -33,7 +33,7 @@ componentDidMount(){
       <div className="App">
        <Header />
         <Dashboard storedinventory={this.state.inventory}/>
-        <Form />
+        <Form getInventory={this.componentDidMount}/>
        <Product />
        
       </div>

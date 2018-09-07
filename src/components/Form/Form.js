@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 export default class Form extends Component {
     constructor(props){
@@ -11,6 +11,8 @@ export default class Form extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.cancel = this.cancel.bind(this);
+        this.addInventory = this.addInventory.bind(this);
+
     }
     
     handleChange(e){
@@ -27,6 +29,19 @@ export default class Form extends Component {
       })
     }
 
+    addInventory(){
+        const newproduct = {
+            product_name: this.state.productName,
+            price: this.state.price,
+            image: this.state.image
+        }
+
+        axios.post('/api/product', newproduct)
+            .then(result => {
+                console.log("WOOOOOHOOOOOO")
+               {this.props.getInventory}
+            })
+    }
 
     render(){
         return(
@@ -39,8 +54,8 @@ export default class Form extends Component {
                 <h4>Price:</h4>
                 <input name="price" value={this.state.price} onChange={this.handleChange}/>
                     <div className="form_buttons">
-                <button className="add_button" onClick={this.add}>Add to Inventory</button>
                 <button className= "cancel_button" onClick= {this.cancel}>Cancel</button>
+                <button className="add_button" onClick={(this.addInventory) (this.cancel)}>Add to Inventory</button>
                     </div>
             </div>
         )
