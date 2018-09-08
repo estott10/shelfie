@@ -30,16 +30,16 @@ export default class Form extends Component {
     }
 
     addInventory(){
-        const newproduct = {
+        const newProduct = {
             product_name: this.state.productName,
             price: this.state.price,
             image: this.state.image
         }
-
-        axios.post('/api/product', newproduct)
+        console.log(newProduct);
+        axios.post('/api/product', newProduct)
             .then(result => {
                 console.log("WOOOOOHOOOOOO")
-               {this.props.getInventory}
+               this.props.getInventory()
             })
     }
 
@@ -55,7 +55,7 @@ export default class Form extends Component {
                 <input name="price" value={this.state.price} onChange={this.handleChange}/>
                     <div className="form_buttons">
                 <button className= "cancel_button" onClick= {this.cancel}>Cancel</button>
-                <button className="add_button" onClick={(this.addInventory) (this.cancel)}>Add to Inventory</button>
+                <button className="add_button" onClick={() => {this.addInventory(); this.cancel();}}>Add to Inventory</button>
                     </div>
             </div>
         )

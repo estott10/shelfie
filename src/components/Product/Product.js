@@ -14,6 +14,10 @@ return (
             <h3 id="productname">{props.productname}</h3>
             <h3 id="productprice">${props.productprice}</h3>
         </div>
+        <div>
+        <button className="delete_button" >Delete</button>
+        <button>Edit</button>
+        </div>
     </div>
 
 )
