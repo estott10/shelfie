@@ -9,9 +9,9 @@ export default class Form extends Component {
             productName: '',
             price: ''
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.cancel = this.cancel.bind(this);
-        this.addInventory = this.addInventory.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.cancel = this.cancel.bind(this)
+        this.addInventory = this.addInventory.bind(this)
 
     }
     
@@ -35,10 +35,9 @@ export default class Form extends Component {
             price: this.state.price,
             image: this.state.image
         }
-        console.log(newProduct);
+        
         axios.post('/api/product', newProduct)
             .then(result => {
-                console.log("WOOOOOHOOOOOO")
                this.props.getInventory()
             })
     }
@@ -46,12 +45,12 @@ export default class Form extends Component {
     render(){
         return(
             <div className= "form">
-             <h1>{this.state.image}</h1>
-                <h4>Image Url:</h4>
+             <h1 className="form_image"></h1>
+                <h4 className="form_labels">Image Url:</h4>
                 <input name="image" value={this.state.image} onChange={this.handleChange}/>
-                <h4>Name:</h4>
+                <h4 className="form_labels">Name:</h4>
                 <input name="productName" value={this.state.productName} onChange={this.handleChange}/>
-                <h4>Price:</h4>
+                <h4 className="form_labels">Price:</h4>
                 <input name="price" value={this.state.price} onChange={this.handleChange}/>
                     <div className="form_buttons">
                 <button className= "cancel_button" onClick= {this.cancel}>Cancel</button>

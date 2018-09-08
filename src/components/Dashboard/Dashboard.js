@@ -5,16 +5,17 @@ import axios from 'axios';
 
 export default class Dashboard extends Component {
     constructor(props){
-    super(props)
+    super(props);
 
     this.state = {
-        product_id: ""
+        random: ""
 
         }
+      this.deleteProduct = this.deleteProduct.bind(this)
     }
     
     deleteProduct(id){
-      axios.delete(`/api/remove/${id}`)
+      axios.delete(`/api/removeproduct/${id}`)
         .then(result => {
           this.props.getInventory()
         })
@@ -26,10 +27,9 @@ export default class Dashboard extends Component {
     const { storedinventory } = this.props;
     return (
           <div className="Dashboard">
-           Dashboard
                 {storedinventory.map((product, i)=> {
-                    return <li className="productgrid" key={i}> <Product productimage={product.image} productname={product.product_name} productprice={product.price}/> 
-                    </li>
+                    return <ul className="productgrid" key={i}> <Product productid={product.product_id} productimage={product.image} productname={product.product_name} productprice={product.price} removeProduct={this.deleteProduct}/> 
+                    </ul>
                   }) }
           </div>
 

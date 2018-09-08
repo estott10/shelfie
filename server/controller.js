@@ -5,8 +5,7 @@ module.exports = {
 
         dbInstance.get_inventory()
             .then( result => {
-                res.send(result)
-                console.log(result)
+                res.send(result) 
             })
             .catch( err => {
                 res.status(500).send({errorMessage: "failed to retreive product"});
@@ -26,7 +25,6 @@ module.exports = {
                 res.send(dbInstance.get_inventory()
                 .then( result => {
                     res.send(result)
-                    console.log(result)
                 }))
                     })
             })

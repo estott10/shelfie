@@ -10,15 +10,15 @@ return (
 
     <div className= "Header">
         <div className="logoname">
-            <img id='logo' src="http://bestbuy.com" alt="logo"/>
-            <h1 id= 'title'>SHELFIE</h1>
+            <div><img id='logo' src="https://image.flaticon.com/icons/svg/53/53933.svg" alt="logo"/></div>
+            <div><h1 id= 'title'>SHELFIE</h1></div>
         </div>
-        <div>
-            <nav className= "links">
-                <Link to= "/" className="header-link">Dashboard</Link>
-                <Link to="/add" className="header-link">Add Inventory</Link>
-            </nav>
-        </div>
+        
+        <nav className= "links">
+             <button className="header_button">   <Link to= "/" className="header-link">Dashboard</Link> </button>
+             <button className="header_button"> <Link to="/add" className="header-link">Add Inventory</Link> </button>
+        </nav>
+       
    
     </div>
 

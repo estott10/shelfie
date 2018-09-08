@@ -5,7 +5,7 @@ import axios from 'axios';
 import Dashboard from './components/Dashboard/Dashboard';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
-import Product from './components/Product/Product';
+
 
 
 
@@ -16,6 +16,7 @@ class App extends Component {
   this.state = {
     inventory: []
   }
+  this.componentDidMount = this.componentDidMount.bind(this)
 }
 componentDidMount(){
   axios.get('/api/inventory')
@@ -34,7 +35,7 @@ componentDidMount(){
        <Header />
         <Dashboard storedinventory={this.state.inventory} getInventory={this.componentDidMount}/>
         <Form getInventory={this.componentDidMount}/>
-       <Product />
+       
        
       </div>
     );
